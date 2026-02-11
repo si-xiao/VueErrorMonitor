@@ -11,7 +11,9 @@
     "prepare": "cypress install",
     "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
-    "build-only": "vite build",
+    "build:dev": "vite build --mode development",
+    "build:test": "vite build --mode testing",
+    "build:prod": "vite build --mode production",
     "type-check": "vue-tsc --build",
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
@@ -19,6 +21,7 @@
     "format": "oxfmt src/"
   },
   "dependencies": {
+    "axios": "^1.13.5",
     "pinia": "^3.0.4",
     "vue": "^3.5.27",
     "vue-router": "^5.0.1"

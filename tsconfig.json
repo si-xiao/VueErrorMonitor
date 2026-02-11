@@ -12,6 +12,25 @@
     }
   ],
   "compilerOptions": {
-    "module": "NodeNext"
-  }
+    "module": "NodeNext",
+    "strict": false, // 关闭严格模式（避免 JS 文件因无类型报错）
+    "allowJs": true, // 允许 TS 编译器处理 JS 文件（核心）
+    "checkJs": false, // 关闭 JS 文件的类型检查（避免 JS 报 TS 错误）
+    "jsx": "preserve",
+    "sourceMap": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    // 类型声明文件目录
+    "typeRoots": ["node_modules/@types", "src/types"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.jsx",
+    "src/**/*.js" // 包含所有 JS 文件（核心）
+  ],
+  "exclude": ["node_modules", "dist"]
 }

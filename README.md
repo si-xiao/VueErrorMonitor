@@ -44,7 +44,8 @@ pnpm dev
 ### Type-Check, Compile and Minify for Production
 
 ```sh
-pnpm build
+pnpm build:prod
+pnpm build:dev
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)

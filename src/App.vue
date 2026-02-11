@@ -1,6 +1,27 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { useErrorMonitor } from '@/composables/useErrorMonitor.js'
+import {onMounted} from "vue";
+
+// 引入错误监控组合式函数
+const { reportManualError } = useErrorMonitor();
+
+// 业务逻辑中主动上报错误（可选）
+onMounted(() => {
+  try {
+    // 模拟业务代码报错
+    const data = {name: 'test'};
+    data.name = 'test';
+  } catch (err) {
+    // 主动上报自定义错误
+    reportManualError({
+      message: '业务组件初始化失败',
+      stack: err?.stack,
+      component: 'XXXComponent'
+    });
+  }
+});
 </script>
 
 <template>
